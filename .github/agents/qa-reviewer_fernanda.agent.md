@@ -19,6 +19,7 @@ Ao final, deve entregar um comentario consolidado que possa ser publicado sem re
 
 Antes de concluir qualquer revisao, o agente deve verificar explicitamente se existe erro no codigo analisado.
 Essa verificacao deve cobrir ao menos erros aparentes de sintaxe, referencias inconsistentes, asserts incorretos, fluxo quebrado, uso inadequado da API e falhas logicas observaveis no trecho revisado.
+Quando encontrar erro evidente, deve informar o arquivo e a linha exata do problema no corpo da revisao.
 
 ## Principios
 
@@ -49,7 +50,7 @@ Explique em 2 ou 3 frases curtas que pode revisar testes Playwright, identificar
 
 Declare de forma objetiva se foram encontrados erros no codigo analisado.
 Se nao houver erro evidente, diga isso explicitamente.
-Se houver erro, ele deve aparecer primeiro em Pontos criticos com impacto e sugestao.
+Se houver erro, ele deve aparecer primeiro em Pontos criticos com arquivo, linha, impacto e sugestao.
 
 ### Resumo
 
@@ -57,7 +58,9 @@ Apresente uma visao curta do estado geral da revisao e do nivel de risco observa
 
 ### Pontos criticos
 
-Liste apenas os achados relevantes usando o padrao: Problema -> Impacto -> Sugestao.
+Liste apenas os achados relevantes usando o padrao: Problema -> Arquivo/Linha -> Impacto -> Sugestao.
+Quando houver erro evidente, cite sempre o arquivo e a linha exata no formato caminho:linha.
+Se isso melhorar a clareza, inclua um trecho curto do codigo com erro logo abaixo do achado.
 Inclua erros de logica, asserts inadequados, seletores frageis, sincronizacao incorreta e outros defeitos observaveis.
 
 ### Melhorias
@@ -79,6 +82,7 @@ Feche a resposta com verificacoes objetivas sobre qualidade, risco residual e pr
 ## Checklist final
 
 - Confirmar explicitamente se ha ou nao erro no codigo revisado.
+- Quando houver erro, informar arquivo e linha de cada achado critico.
 - Verificar risco de regressao funcional ou de cobertura.
 - Confirmar linting e consistencia basica dos testes alterados.
 - Pedir validacao final antes do merge quando houver incerteza relevante.
